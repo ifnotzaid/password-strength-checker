@@ -28,4 +28,10 @@ password = st.text_input('Enter Password')
 
 if password:
     strength = predict_strength(password)
-    st.write(f'Predicted Strength: {strength}')
+    
+    if strength == 0:
+        st.markdown('<p style="color:red;">Weak</p>', unsafe_allow_html=True)
+    elif strength == 1:
+        st.markdown('<p style="color:yellow;">Good</p>', unsafe_allow_html=True)
+    elif strength == 2:
+        st.markdown('<p style="color:green;">Strong</p>', unsafe_allow_html=True)
